@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "App.css";
+import "./App.css";
 import About from "./components/About";
 import Experties from "./components/Experties";
 import Footer from "./components/Footer";
