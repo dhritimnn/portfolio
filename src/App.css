@@ -74,12 +74,11 @@ nav {
     @apply hidden cursor-pointer;
 
     & .line {
-      @apply fill-none stroke-[#1a1a1a] stroke-[3px] origin-center;
+      @apply fill-none origin-center;
       transition:
         transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 0.3s;
       transform-box: fill-box;
-      stroke: round;
     }
 
     &.active {

@@ -24,9 +24,36 @@ function Navbar() {
           height="30"
           onClick={toggleMenu}
         >
-          <line className="line top" x1="4" y1="12" x2="36" y2="12" />
-          <line className="line mid" x1="4" y1="20" x2="36" y2="20" />
-          <line className="line bot" x1="4" y1="28" x2="36" y2="28" />
+          <line
+            className="line top"
+            x1="4"
+            y1="12"
+            x2="36"
+            y2="12"
+            stroke="#1a1a1a"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+          <line
+            className="line mid"
+            x1="4"
+            y1="20"
+            x2="36"
+            y2="20"
+            stroke="#1a1a1a"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+          <line
+            className="line bot"
+            x1="4"
+            y1="28"
+            x2="36"
+            y2="28"
+            stroke="#1a1a1a"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
         </svg>
       </nav>
 
