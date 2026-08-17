@@ -48,8 +48,7 @@ footer {
 
 /* Navigation Bar */
 nav {
-  @apply grid grid-cols-3 items-center py-[2.7
-rem] px-16 relative;
+  @apply grid grid-cols-3 items-center py-[2.7rem] px-16 relative;
 
   &::before {
     @apply content-[""] absolute top-0 inset-x-0 h-1.75;
@@ -72,29 +71,29 @@ rem] px-16 relative;
     }
   }
   & > .menu-svg {
-  @apply hidden cursor-pointer;
+    @apply hidden cursor-pointer;
 
-  & .line {
-    @apply fill-none stroke-[#1a1a1a] stroke-[3px] origin-center;
-    transition:
-      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.3s;
-    transform-box: fill-box;
-    stroke: round;
-  }
+    & .line {
+      @apply fill-none stroke-[#1a1a1a] stroke-[3px] origin-center;
+      transition:
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s;
+      transform-box: fill-box;
+      stroke: round;
+    }
 
-  &.active {
-    & .top {
-      transform: translateY(8px) rotate(30deg);
-    }
-    & .mid {
-      @apply opacity-0;
-    }
-    & .bot {
-      transform: translateY(-8px) rotate(-30deg);
+    &.active {
+      & .top {
+        transform: translateY(8px) rotate(30deg);
+      }
+      & .mid {
+        @apply opacity-0;
+      }
+      & .bot {
+        transform: translateY(-8px) rotate(-30deg);
+      }
     }
   }
-}
 }
 
 #nav-links {
