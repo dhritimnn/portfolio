@@ -64,10 +64,10 @@ nav {
   }
 
   & a {
-    @apply no-underline transition-all duration-100;
+    @apply no-underline transition-all duration-100 border-b-0 border-transparent;
     color: var(--color-dark);
     &:hover {
-      @apply text-[#79797c] scale-105;
+      @apply text-[#79797c] scale-105 border-b-2 border-[#9797ae];
     }
   }
   & > .menu-svg {
@@ -146,7 +146,10 @@ nav {
 }
 
 #about > img {
-  @apply w-full mb-8;
+  @apply w-full mb-8 transition-all duration-100 rounded-lg select-none;
+  &:hover {
+    @apply scale-101;
+  }
 }
 
 #experties {
@@ -172,6 +175,9 @@ footer {
 
     & a > img {
       @apply h-10 rounded-full;
+      &:hover {
+        @apply scale-110;
+      }
     }
   }
 
@@ -247,6 +253,14 @@ footer {
   #about {
     @apply mb-16;
   }
+
+  #about > img {
+    @apply transition-none rounded-none select-none;
+    &:hover {
+      @apply scale-none;
+    }
+  }
+
   #experties > #logos {
     @apply pb-16;
   }
