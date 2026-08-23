@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-function Navbar() {
+function Navbar({ theme, toggleTheme }) {
   let [isMenu, setMenu] = useState(false);
   let toggleMenu = () => {
     setMenu(!isMenu);
   };
+
   return (
     <>
       <nav>
@@ -15,7 +16,44 @@ function Navbar() {
           <a href="#experties">Experties</a>
           <a href="#footer">Contact</a>
         </div>
-        <a href="https://github.com/dhritimnn/">Github</a>
+        <button
+          id="theme-toggle"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          type="button"
+        >
+          {theme === "light" ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 3v2.25m0 13.5V21m9-9h-2.25M5.25 12H3m14.4 6.6-1.59-1.59M8.19 8.19 6.6 6.6m0 10.8 1.59-1.59M15.81 8.19l1.59-1.59M12 7.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Z"
+              />
+            </svg>
+          )}
+        </button>
         <svg
           className="menu-svg"
           id="menu-svg"
@@ -30,7 +68,7 @@ function Navbar() {
             y1="12"
             x2="36"
             y2="12"
-            stroke="#1a1a1a"
+            stroke="currentColor"
             strokeWidth="3"
             strokeLinecap="round"
           />
@@ -40,7 +78,7 @@ function Navbar() {
             y1="20"
             x2="36"
             y2="20"
-            stroke="#1a1a1a"
+            stroke="currentColor"
             strokeWidth="3"
             strokeLinecap="round"
           />
@@ -50,7 +88,7 @@ function Navbar() {
             y1="28"
             x2="36"
             y2="28"
-            stroke="#1a1a1a"
+            stroke="currentColor"
             strokeWidth="3"
             strokeLinecap="round"
           />

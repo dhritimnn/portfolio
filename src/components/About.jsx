@@ -11,7 +11,7 @@ function About() {
           studying in Class 11 at &nbsp;
           <a
             href="https://share.google/M5wtIe5FEmluiKVwn"
-            style={{ color: "#252627" }}
+            style={{ color: "rgb(255, 107, 107)" }}
           >
             Anundoram Borooah Academy,
           </a>{" "}

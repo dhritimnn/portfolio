@@ -5,6 +5,28 @@
   --color-light: #f6f7f9;
 }
 
+:root {
+  --bg: var(--color-light);
+  --text: var(--color-dark);
+  --nav-bg: var(--color-light);
+  --muted: #79797c;
+  --border: rgba(37, 47, 59, 0.18);
+  --button-hover: rgba(37, 47, 59, 0.08);
+  --footer-bg: var(--color-dark);
+  --footer-text: var(--color-light);
+}
+
+html[data-theme="dark"] {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --nav-bg: #111827;
+  --muted: #9ca3af;
+  --border: rgba(148, 163, 184, 0.2);
+  --button-hover: rgba(148, 163, 184, 0.1);
+  --footer-bg: #111827;
+  --footer-text: #f6f7f9;
+}
+
 /* Base Elements */
 html {
   @apply scroll-smooth;
@@ -19,18 +41,21 @@ html {
 }
 
 body {
-  background: var(--color-light);
-  color: var(--color-dark);
+  background: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 ::selection {
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  background-color: var(--text);
+  color: var(--bg);
 }
 
 footer::selection {
-  background-color: var(--color-light);
-  color: var(--color-dark);
+  background-color: var(--footer-text);
+  color: var(--footer-bg);
 }
 
 /* Structural Components */
@@ -49,29 +74,43 @@ footer {
 /* Navigation Bar */
 nav {
   @apply grid grid-cols-3 items-center py-[2.7rem] px-16 relative;
+  background: var(--nav-bg);
+  color: var(--text);
 
   &::before {
     @apply content-[""] absolute top-0 inset-x-0 h-1.75;
-    background: var(--color-dark);
+    background: var(--text);
   }
 
   & > h3 {
     @apply font-bold text-[17px] tracking-[1.5px];
+    color: var(--text);
   }
 
-  & > a {
-    @apply justify-self-end;
+  & > button {
+    @apply justify-self-end flex items-center justify-center rounded-full border cursor-pointer transition-all duration-200;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--text);
+    border-color: var(--border);
+    background: transparent;
+
+    &:hover {
+      background: var(--button-hover);
+    }
   }
 
   & a {
     @apply no-underline transition-all duration-100 border-b-0 border-transparent;
-    color: var(--color-dark);
+    color: var(--text);
     &:hover {
-      @apply text-[#79797c] scale-105 border-b-2 border-[#9797ae];
+      @apply scale-105 border-b-2 border-[#9797ae];
+      color: var(--muted);
     }
   }
   & > .menu-svg {
-    @apply hidden cursor-pointer;
+    @apply hidden cursor-pointer text-current;
+    color: var(--text);
 
     & .line {
       @apply fill-none origin-center;
@@ -203,20 +242,23 @@ footer {
 
   nav {
     @apply z-10000 sticky top-0 inset-x-0 flex justify-between pt-8 pr-[1.8rem] pb-8 pl-[2.2rem];
-    background: var(--color-light);
+    background: var(--nav-bg);
 
     & > .menu-svg {
       @apply block;
+    }
+    & > button {
+      @apply fixed bottom-5 right-5 z-10001 h-8 w-8 text-[.1rem] backdrop-blur-sm;
     }
   }
 
   #nav-menu {
     @apply z-9999 hidden flex-col pt-36 items-center gap-11 fixed top-20 inset-x-0 bottom-0;
-    background: var(--color-light);
+    background: var(--nav-bg);
 
     & > a {
       @apply no-underline text-[1.5rem] tracking-[2.4px] font-bold;
-      color: var(--color-dark);
+      color: var(--text);
     }
   }
 
