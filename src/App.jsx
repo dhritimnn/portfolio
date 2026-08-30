@@ -1,61 +1,34 @@
-import { useEffect, useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import About from "./components/About";
-import Experties from "./components/Experties";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
+import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ObserverManager from "./components/ObserverManager";
 
-function App() {
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("portfolio-theme");
-    if (savedTheme) return savedTheme;
+const routes = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <Navbar />
+        <ObserverManager />
+        <Home />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/blogs",
+    element: (
+      <>
+        <Navbar />
+        <ObserverManager />
+        <Blogs />
+        <Footer />
+      </>
+    ),
+  },
+]);
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("portfolio-theme", theme);
-  }, [theme]);
-
-  useEffect(() => {
-    const observerOptions = {
-      // Negative bottom margin shrinks the trigger zone from the bottom of the viewport
-      rootMargin: "0px 0px -20% 0px",
-      threshold: 0,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal");
-        } else {
-          entry.target.classList.remove("reveal");
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll(".sda").forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
-  return (
-    <>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <Hero />
-      <About />
-      <Experties />
-      <Footer />
-    </>
-  );
-}
-
-export default App;
+export default routes;

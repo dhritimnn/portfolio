@@ -1,20 +1,39 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function Navbar({ theme, toggleTheme }) {
+function Navbar() {
   let [isMenu, setMenu] = useState(false);
   let toggleMenu = () => {
     setMenu(!isMenu);
   };
 
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    if (savedTheme) return savedTheme;
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
   return (
     <>
       <nav>
         <h3>DHRITIMAN</h3>
         <div id="nav-links">
-          <a href="#">Home</a>
-          <a href="#about">About</a>
-          <a href="#experties">Experties</a>
-          <a href="#footer">Contact</a>
+          <Link to="/">Home</Link>
+          <Link to="#about">About</Link>
+          <Link to="#experties">Experties</Link>
+          <Link to="#footer">Contact</Link>
+          <Link to="/blogs">Blogs</Link>
         </div>
         <button
           id="theme-toggle"
