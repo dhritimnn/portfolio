@@ -401,17 +401,18 @@ footer {
 
 @media screen and (max-width: 857px) {
   .blog-container {
-    @apply mx-auto w-80;
+    @apply mx-auto w-[90%];
   }
 
   .blog-search {
-    @apply w-80 flex-col;
+    @apply w-full flex-col;
     & > button {
-      @apply w-[95%];
+      @apply w-[90%];
     }
     & > .blog-search-child1 {
+      @apply w-[90%] flex-row;
       & > input {
-        @apply w-auto;
+        @apply w-full;
       }
     }
   }
