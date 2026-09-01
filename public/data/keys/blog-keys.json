@@ -1,18 +1,8 @@
 [
   {
     "id": 1,
-    "name": "This title is so long that it may get out of the box still i want to keep it",
-    "date": "20/11/2009",
-    "tags": "physics"
-  },
-  {
-    "id": 2,
-    "name": "this is blog 2",
-    "tags": "chemistry physics"
-  },
-  {
-    "id": 3,
-    "name": "This is another blog",
-    "tags": "biology"
+    "name": "First Blog of This Website",
+    "date": "01/09/2026",
+    "tags": ""
   }
 ]

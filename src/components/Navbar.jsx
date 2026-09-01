@@ -12,7 +12,7 @@ function Navbar() {
     const savedTheme = localStorage.getItem("portfolio-theme");
     if (savedTheme) return savedTheme;
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
+    return window.matchMedia("(prefers-color-scheme: light)").matches
       ? "dark"
       : "light";
   });
@@ -30,9 +30,9 @@ function Navbar() {
         <h3>DHRITIMAN</h3>
         <div id="nav-links">
           <Link to="/">Home</Link>
-          <Link to="#about">About</Link>
-          <Link to="#experties">Experties</Link>
-          <Link to="#footer">Contact</Link>
+          <a href="/#about">About</a>
+          <a href="/#experties">Experties</a>
+          <a href="/#footer">Contact</a>
           <Link to="/blogs">Blogs</Link>
         </div>
         <button
@@ -124,9 +124,9 @@ function Navbar() {
         onClick={toggleMenu}
       >
         <Link to="/">Home</Link>
-        <Link to="#about">About</Link>
-        <Link to="#experties">Experties</Link>
-        <Link to="#footer">Contact</Link>
+        <a href="/#about">About</a>
+        <a href="/#experties">Experties</a>
+        <a href="/#footer">Contact</a>
         <Link to="/blogs">Blogs</Link>
         <Link to="https://github.com/dhritimnn/">Github</Link>
       </div>

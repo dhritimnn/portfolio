@@ -133,18 +133,26 @@ function Blogs() {
           Filter
         </button>
         <div className="filterdropmenu">
-          <Link to="/blogs">Clear Filter</Link>
-          <Link to="/blogs?search=physics">Physics</Link>
-          <Link to="/blogs?search=chemistry">Chemistry</Link>
+          <Link to="/blogs" onClick={filterdropdowntoggle}>
+            Clear Filter
+          </Link>
+          <Link to="/blogs?search=physics" onClick={filterdropdowntoggle}>
+            Physics
+          </Link>
+          <Link to="/blogs?search=chemistry" onClick={filterdropdowntoggle}>
+            Chemistry
+          </Link>
         </div>
       </div>
       <br />
       <div className="blog-container">
-        {filteredData.map((blog) => (
-          <Link key={blog.id} to={`/blog?=${blog.id}`}>
-            <Card title={blog.name} date={blog.date} />
-          </Link>
-        ))}
+        {filteredData
+          .map((blog) => (
+            <Link key={blog.id} to={`/blog?=${blog.id}`}>
+              <Card title={blog.name} date={blog.date} />
+            </Link>
+          ))
+          .reverse()}
       </div>
     </>
   );

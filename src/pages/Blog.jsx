@@ -26,7 +26,7 @@ const Blog = () => {
         <h2>{data.title}</h2>
         <p className="blog-date">{data.date}</p>
         <br />
-        <p> &nbsp; &nbsp; {data.content}</p>
+        <p> &nbsp; &nbsp; {JSON.stringify(data.content)}</p>
       </div>
     </>
   );
