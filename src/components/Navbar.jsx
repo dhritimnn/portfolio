@@ -123,11 +123,12 @@ function Navbar() {
         }}
         onClick={toggleMenu}
       >
-        <a href="#">Home</a>
-        <a href="#about">About</a>
-        <a href="#experties">Experties</a>
-        <a href="#footer">Contact</a>
-        <a href="https://github.com/dhritimnn/">Github</a>
+        <Link to="/">Home</Link>
+        <Link to="#about">About</Link>
+        <Link to="#experties">Experties</Link>
+        <Link to="#footer">Contact</Link>
+        <Link to="/blogs">Blogs</Link>
+        <Link to="https://github.com/dhritimnn/">Github</Link>
       </div>
     </>
   );

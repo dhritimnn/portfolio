@@ -335,3 +335,88 @@ footer {
     opacity: 1;
   }
 }
+
+.blog-search {
+  @apply mx-auto w-[50%] flex justify-center items-center gap-2 my-4;
+
+  & > .blog-search-child1 {
+    @apply mx-0 flex justify-center items-center gap-2 my-0;
+    & > input {
+      @apply w-100 border-2 border-gray-500 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-cyan-900 focus:border-transparent dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:border-gray-500;
+    }
+
+    & > button {
+      @apply bg-dark text-white rounded-md px-3 py-1 hover:bg-blue-600 transition-colors duration-200;
+    }
+  }
+  & > input {
+    @apply w-[60%] border-2 border-gray-500 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-cyan-900 focus:border-transparent dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:border-gray-500;
+  }
+
+  & > button {
+    @apply w-min bg-dark text-white rounded-md px-3 py-1 hover:bg-blue-600 transition-colors duration-200;
+  }
+}
+
+.blog-card {
+  @apply flex justify-between gap-3 mx-auto w-full p-3 my-2 border-2 border-gray-500 border-b-5 rounded-xl;
+}
+
+.blog-card:hover {
+  @apply shadow-lg transform scale-[1.02] transition-transform duration-100;
+}
+
+.blog-card > h2 {
+  @apply text-2xl font-bold;
+}
+
+.blog-card > .blog-date {
+  @apply text-mauve-500;
+}
+
+.filterdropmenu {
+  @apply hidden gap-2 absolute right-[25%] top-46 px-5 py-3 w-32 text-light bg-dark rounded-md shadow-lg p-2 z-10;
+}
+.filterdropmenu.show {
+  @apply flex flex-col gap-2 absolute right-[30%] translate-x-1/2 top-46 px-5 py-3 w-32 text-light bg-dark rounded-md shadow-lg p-2 z-10;
+}
+.filterdropmenu > a {
+  @apply hover:text-gray-400 transition-colors duration-200;
+}
+.blog-container {
+  @apply mx-auto w-[50%];
+
+  & > h2 {
+    @apply text-3xl font-extrabold;
+  }
+
+  & > .blog-date {
+    @apply text-mauve-500;
+  }
+
+  & > p {
+    @apply text-justify text-lg;
+  }
+}
+
+@media screen and (max-width: 857px) {
+  .blog-container {
+    @apply mx-auto w-80;
+  }
+
+  .blog-search {
+    @apply w-80 flex-col;
+    & > button {
+      @apply w-[95%];
+    }
+    & > .blog-search-child1 {
+      & > input {
+        @apply w-auto;
+      }
+    }
+  }
+
+  .filterdropmenu.show {
+    @apply right-1/2 translate-x-1/2 text-center my-2;
+  }
+}
