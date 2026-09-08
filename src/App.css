@@ -27,14 +27,12 @@ html[data-theme="dark"] {
   --footer-text: #f6f7f9;
 }
 
-/* Base Elements */
 html {
   @apply scroll-smooth;
 }
 
 * {
   @apply m-0 p-0;
-  /* Fixed the misplaced quotation mark */
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;
@@ -58,7 +56,6 @@ footer::selection {
   color: var(--footer-bg);
 }
 
-/* Structural Components */
 #hero,
 #about,
 #experties {
@@ -71,7 +68,6 @@ footer {
   @apply flex flex-col justify-center items-center;
 }
 
-/* Navigation Bar */
 nav {
   @apply grid grid-cols-3 items-center py-[2.7rem] px-16 relative;
   background: var(--nav-bg);
@@ -132,17 +128,14 @@ nav {
       }
     }
   }
+  & > #nav-links {
+    @apply flex gap-8 justify-self-center;
+  }
+  & > #nav-menu {
+    @apply hidden;
+  }
 }
 
-#nav-links {
-  @apply flex gap-8 justify-self-center;
-}
-
-#nav-menu {
-  @apply hidden;
-}
-
-/* Hero Content */
 #hero > .first-child {
   @apply gap-6 pt-24 pb-2;
 
@@ -172,7 +165,6 @@ nav {
   }
 }
 
-/* About & Expertise Sections */
 #about,
 #experties {
   & > h1 {
@@ -203,7 +195,6 @@ nav {
   }
 }
 
-/* Footer & Dividers */
 footer {
   @apply p-36 gap-8 tracking-[2px] mt-16;
   background: var(--color-dark);
@@ -233,7 +224,6 @@ footer {
   }
 }
 
-/* Responsive Styles */
 @media screen and (max-width: 857px) {
   nav > #nav-links,
   nav > a {
@@ -314,7 +304,6 @@ footer {
   }
 }
 
-/* Scroll Animations */
 .sda {
   @apply opacity-0 translate-y-10;
   transition:
@@ -341,48 +330,40 @@ footer {
 
   & > .blog-search-child1 {
     @apply mx-0 flex justify-center items-center gap-2 my-0;
-    & > input {
+
+    & > .searchInput {
       @apply w-100 border-2 border-gray-500 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-cyan-900 focus:border-transparent dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:border-gray-500;
     }
 
-    & > button {
+    & > .searchBtn {
       @apply bg-dark text-white rounded-md px-3 py-1 hover:bg-blue-600 transition-colors duration-200;
     }
   }
-  & > input {
-    @apply w-[60%] border-2 border-gray-500 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-cyan-900 focus:border-transparent dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:border-gray-500;
+
+  & > .filterBtn {
+    @apply w-min max-w-120 bg-dark text-white rounded-md px-3 py-1 hover:bg-blue-600 transition-colors duration-200;
   }
 
-  & > button {
-    @apply w-min bg-dark text-white rounded-md px-3 py-1 hover:bg-blue-600 transition-colors duration-200;
+  & > .filterDropdown {
+    @apply flex flex-col gap-2 absolute right-[30%] translate-x-1/2 top-46 px-5 py-3 w-32 text-light bg-dark rounded-md shadow-lg p-2 z-10;
+    & > a {
+      @apply hover:text-gray-400 transition-colors duration-200;
+    }
   }
 }
 
 .blog-card {
-  @apply flex justify-between gap-3 mx-auto w-full p-3 my-2 border-2 border-gray-500 border-b-5 rounded-xl;
+  @apply flex justify-between gap-3 mx-auto w-full p-3 my-2 border-2 border-gray-500 border-b-5 rounded-xl hover:shadow-lg hover:transform hover:scale-[1.02] hover:transition-transform hover:duration-100;
+
+  & > h2 {
+    @apply text-2xl font-bold;
+  }
+
+  & > .blog-date {
+    @apply text-mauve-500;
+  }
 }
 
-.blog-card:hover {
-  @apply shadow-lg transform scale-[1.02] transition-transform duration-100;
-}
-
-.blog-card > h2 {
-  @apply text-2xl font-bold;
-}
-
-.blog-card > .blog-date {
-  @apply text-mauve-500;
-}
-
-.filterdropmenu {
-  @apply hidden gap-2 absolute right-[25%] top-46 px-5 py-3 w-32 text-light bg-dark rounded-md shadow-lg p-2 z-10;
-}
-.filterdropmenu.show {
-  @apply flex flex-col gap-2 absolute right-[30%] translate-x-1/2 top-46 px-5 py-3 w-32 text-light bg-dark rounded-md shadow-lg p-2 z-10;
-}
-.filterdropmenu > a {
-  @apply hover:text-gray-400 transition-colors duration-200;
-}
 .blog-container {
   @apply mx-auto w-[50%];
 
@@ -406,7 +387,7 @@ footer {
 
   .blog-search {
     @apply w-full flex-col;
-    & > button {
+    & > .filterBtn {
       @apply w-[90%];
     }
     & > .blog-search-child1 {
@@ -415,13 +396,12 @@ footer {
         @apply w-full;
       }
     }
+    & > .filterDropdown {
+      @apply right-1/2 translate-x-1/2 text-center my-2;
+    }
   }
 
-  .filterdropmenu.show {
-    @apply right-1/2 translate-x-1/2 text-center my-2;
+  .blog-card {
+    @apply max-w-120;
   }
-}
-
-.bloggreetbtn {
-  @apply self-center max-[857px]:w-[90%] text-center py-3 px-5 text-white rounded-xl bg-dark;
 }

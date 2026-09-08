@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ date, title }) => {
+const BlogCard = ({ date, title }) => {
   return (
     <>
       <div className="blog-card">
@@ -13,4 +13,4 @@ const Card = ({ date, title }) => {
   );
 };
 
-export default Card;
+export default BlogCard;

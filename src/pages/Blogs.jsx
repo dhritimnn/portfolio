@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import Card from "../components/Card";
+import BlogCard from "../components/BlogCard";
 
 function Blogs() {
   const [data, setData] = useState([]);
@@ -108,48 +108,57 @@ function Blogs() {
     return matchesSearchTerm && matchesSelectedTag;
   });
 
-  const filterdropdowntoggle = () => {
-    const filterMenu = document.querySelector(".filterdropmenu");
-    if (filterMenu) {
-      filterMenu.classList.toggle("show");
-    }
-  };
+  // Filter Dropdown Toggle Function
+  function filterDropdownToggle() {
+    dropdownToggle ? setDropdowntoggle(false) : setDropdowntoggle(true);
+  }
+
+  const [dropdownToggle, setDropdowntoggle] = useState(false);
 
   return (
     <>
       <div className="blog-search">
         <div className="blog-search-child1">
           <input
+            className="searchInput"
             type="text"
             placeholder="Search blogs..."
             onChange={handleSearchInput}
             value={searchTerm}
           />
-          <button type="button" onClick={handleSearch}>
+          <button className="searchBtn" type="button" onClick={handleSearch}>
             Search
           </button>
         </div>
-        <button type="button" onClick={filterdropdowntoggle}>
+        <button
+          className="filterBtn"
+          type="button"
+          onClick={filterDropdownToggle}
+        >
           Filter
         </button>
-        <div className="filterdropmenu">
-          <Link to="/blogs" onClick={filterdropdowntoggle}>
+        <div
+          className="filterDropdown"
+          style={{ display: dropdownToggle ? "flex" : "none" }}
+        >
+          <Link to="/blogs" onClick={filterDropdownToggle}>
             Clear Filter
           </Link>
-          <Link to="/blogs?search=physics" onClick={filterdropdowntoggle}>
+          <Link to="/blogs?search=physics" onClick={filterDropdownToggle}>
             Physics
           </Link>
-          <Link to="/blogs?search=chemistry" onClick={filterdropdowntoggle}>
+          <Link to="/blogs?search=chemistry" onClick={filterDropdownToggle}>
             Chemistry
           </Link>
         </div>
       </div>
+
       <br />
       <div className="blog-container">
         {filteredData
           .map((blog) => (
-            <Link key={blog.id} to={`/blog?=${blog.id}`}>
-              <Card title={blog.name} date={blog.date} />
+            <Link key={blog.id} to={`/blogpost?=${blog.id}`}>
+              <BlogCard title={blog.name} date={blog.date} />
             </Link>
           ))
           .reverse()}

@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-const Blog = () => {
+const Blogpost = () => {
   let [searchParams, setParams] = useSearchParams();
   let [data, setData] = useState({});
   let query = searchParams.get("");
@@ -26,10 +26,10 @@ const Blog = () => {
         <h2>{data.title}</h2>
         <p className="blog-date">{data.date}</p>
         <br />
-        <p> &nbsp; &nbsp; {JSON.stringify(data.content)}</p>
+        <p> &nbsp; &nbsp; {data.content}</p>
       </div>
     </>
   );
 };
 
-export default Blog;
+export default Blogpost;

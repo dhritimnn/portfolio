@@ -14,14 +14,16 @@ const BlogGreets = () => {
         >
           Hello dear visitors, I am going to start a blogging in this website.
           It will mostly about Physics, Scientists, Nature, Calculations,
-          Sci-fi, etc. Please do check them, and lemme know if it helps you.
-          &nbsp;&nbsp; -1 Sept, 2026 <br />
+          Sci-fi, etc. Please do check them, and lemme know if it helps you.{" "}
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -1 Sept, 2026 <br />
         </div>
         <Link
-          className="bloggreetbtn"
+          className=" self-center max-[857px]:w-[90%] text-center text-white rounded-xl bg-dark"
           to="/blogs"
           style={{
             margin: "0 auto",
+            padding: ".5rem 2rem",
           }}
         >
           Go to Blogs
